@@ -1,8 +1,20 @@
-# Agent AI
+# AgentAI
 
-Agent AI is a full-stack course project that turns an uploaded PDF into a grounded question-answering workspace. It combines document retrieval (RAG), optional OpenAI generation, a voice interface, and Model Context Protocol (MCP) tool use for optional web-search context.
+A document-intelligence workspace that turns an uploaded PDF into grounded
+answers. The application combines React and Express with retrieval-augmented
+generation (RAG), a no-key local retrieval fallback, voice interaction, and an
+optional Model Context Protocol (MCP) search tool.
 
-The project follows the course architecture while adding validation, local no-key fallback behavior, isolated error handling, and server-side tests.
+## Portfolio Snapshot
+
+- **Problem:** answer questions from a user-provided PDF without presenting
+  unsupported external text as document evidence.
+- **Core design:** document-grounded RAG answers and optional MCP-assisted
+  answers are returned and displayed separately.
+- **Resilience:** the core workflow remains usable without paid API keys
+  through local keyword retrieval.
+- **Engineering:** server-side upload validation, runtime-only file storage,
+  environment-based configuration, and Node test coverage.
 
 ## What It Demonstrates
 
@@ -15,6 +27,14 @@ The project follows the course architecture while adding validation, local no-ke
 - Display document-grounded and MCP-assisted answers separately
 - Support browser speech recognition and speech synthesis for voice conversation mode
 - Test local retrieval behavior with Node's built-in test runner
+
+## Demo Flow
+
+1. Upload a PDF.
+2. The server extracts text and creates retrieval chunks.
+3. Ask a question in text or through browser speech recognition.
+4. Review the document-grounded answer first.
+5. When configured, compare it with a separately labelled MCP-assisted answer.
 
 ## Tech Stack
 
@@ -68,14 +88,14 @@ AgentAI/
 |   +-- chat-mcp.js                 # MCP client and optional LLM summary
 |   +-- uploads/                    # Runtime-only PDF storage; ignored by Git
 |   +-- test/local-rag.test.js
-+-- docs/                           # Chinese lesson-by-lesson tutorials
++-- docs/                           # Implementation and learning notes
 +-- postman/                        # API requests for backend testing
 +-- package.json                    # React and combined development scripts
 ```
 
 ## Prerequisites
 
-- Node.js 24 LTS or newer
+- Node.js 20+ LTS
 - npm
 - A modern browser for voice recognition
 - Optional: OpenAI API key and SerpAPI key
@@ -85,8 +105,7 @@ AgentAI/
 Install the React dependencies:
 
 ```powershell
-cd Z:\Program\java\AgentAI
-npm.cmd install --legacy-peer-deps
+npm install --legacy-peer-deps
 ```
 
 Install the Express and LangChain dependencies:
@@ -132,9 +151,17 @@ Never commit `server/.env`, real API keys, or private uploaded documents.
 The server keeps only the currently active PDF; uploading a replacement or using
 **Clear document** removes the prior runtime file.
 
-## Course Compatibility Note
+## Engineering Decisions
 
-The course uses Create React App and LangChain package paths that are still useful for learning the architecture. Create React App and one LangChain community package currently report maintenance/deprecation notices during installation. The project keeps the course structure so you can follow the lessons, while upgrading Multer to the maintained 2.x upload middleware line.
+- API keys stay in `server/.env`, never in the React build.
+- Uploaded PDFs are runtime artifacts and are ignored by Git.
+- A missing OpenAI or SerpAPI key results in an explicit fallback/configuration
+  message instead of an invented answer.
+- The RAG and MCP paths are intentionally separate so a reader can understand
+  where an answer came from.
+- The project retains the course's Create React App structure; it is useful for
+  learning the architecture, though a production rewrite could migrate the
+  frontend to Vite.
 
 ## Test and Build
 
