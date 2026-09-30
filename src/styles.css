@@ -1,0 +1,429 @@
+:root {
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  color: #172033;
+  background: #eef3f8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #eef3f8;
+}
+
+.app-shell {
+  min-height: 100vh;
+  background: #eef3f8;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+  padding: 0 clamp(20px, 5vw, 72px);
+  background: #14213d;
+}
+
+.brand,
+.header-status,
+.capability,
+.composer-copy,
+.composer-controls,
+.document-status,
+.answer-meta {
+  display: flex;
+  align-items: center;
+}
+
+.brand {
+  gap: 12px;
+  color: #ffffff;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  color: #14213d;
+  background: #fca311;
+  font-size: 19px;
+}
+
+.brand strong,
+.brand span {
+  display: block;
+}
+
+.brand strong {
+  font-size: 16px;
+}
+
+.brand div span {
+  color: #cbd5e1;
+  font-size: 12px;
+}
+
+.header-status {
+  gap: 10px;
+}
+
+.header-status .ant-btn {
+  color: #ffffff;
+}
+
+.app-content {
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 42px 0 170px;
+}
+
+.intro-band {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
+  gap: 42px;
+  align-items: start;
+  padding: 10px 0 34px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: #47637d;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  max-width: 650px;
+  margin-bottom: 14px;
+  color: #14213d;
+  font-size: 35px;
+  line-height: 1.16;
+}
+
+h2 {
+  margin-bottom: 0;
+  color: #14213d;
+  font-size: 20px;
+}
+
+.intro-band > div > p:not(.eyebrow) {
+  max-width: 640px;
+  margin-bottom: 0;
+  color: #526477;
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.capability-list {
+  border-top: 1px solid #cad5e2;
+}
+
+.capability {
+  position: relative;
+  gap: 12px;
+  min-height: 70px;
+  border-bottom: 1px solid #cad5e2;
+  padding: 12px 0;
+}
+
+.capability-icon {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  color: #63758a;
+  background: #dce5ed;
+}
+
+.capability-icon.is-ready {
+  color: #0f766e;
+  background: #ccece5;
+}
+
+.capability div {
+  flex: 1;
+}
+
+.capability strong,
+.capability p {
+  display: block;
+}
+
+.capability strong {
+  font-size: 14px;
+}
+
+.capability p {
+  margin: 2px 0 0;
+  color: #607287;
+  font-size: 12px;
+}
+
+.server-alert {
+  margin-bottom: 22px;
+}
+
+.document-panel,
+.conversation-panel {
+  background: #ffffff;
+  border: 1px solid #d8e1ea;
+  border-radius: 6px;
+}
+
+.document-panel {
+  padding: clamp(20px, 4vw, 32px);
+}
+
+.conversation-panel {
+  margin-top: 22px;
+  padding: 24px clamp(20px, 4vw, 32px);
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.document-panel .ant-upload-wrapper .ant-upload-drag {
+  padding: 26px 18px;
+  border-color: #94a7bb;
+  border-radius: 4px;
+  background: #f8fafc;
+}
+
+.document-panel .ant-upload-wrapper .ant-upload-drag:hover {
+  border-color: #1677ff;
+}
+
+.document-panel .ant-upload-drag-icon {
+  color: #1677ff;
+  font-size: 32px;
+}
+
+.document-status {
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin-top: 16px;
+  padding: 12px 0 0;
+  border-top: 1px solid #e2e8f0;
+  color: #607287;
+  font-size: 13px;
+}
+
+.document-status strong {
+  color: #172033;
+}
+
+.conversation {
+  min-height: 280px;
+  max-height: 520px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.conversation-empty {
+  display: grid;
+  min-height: 280px;
+  place-items: center;
+}
+
+.conversation-turn {
+  margin-bottom: 26px;
+}
+
+.question-bubble {
+  width: fit-content;
+  max-width: min(80%, 700px);
+  margin: 0 0 14px auto;
+  padding: 10px 14px;
+  color: #ffffff;
+  background: #1677ff;
+  border-radius: 6px 6px 0 6px;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+
+.answer-stack {
+  display: grid;
+  gap: 10px;
+  max-width: min(86%, 800px);
+}
+
+.answer-block {
+  padding: 13px 15px;
+  border-left: 4px solid;
+  border-radius: 0 5px 5px 0;
+}
+
+.answer-document {
+  border-left-color: #1677ff;
+  background: #edf6ff;
+}
+
+.answer-web {
+  border-left-color: #16a34a;
+  background: #effaf2;
+}
+
+.answer-meta {
+  gap: 7px;
+  margin-bottom: 7px;
+  color: #40556c;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.answer-meta .ant-tag {
+  margin-left: auto;
+  font-weight: 400;
+}
+
+.answer-block p {
+  margin: 0;
+  color: #223247;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.answer-pending,
+.loading-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #5d7085;
+  font-size: 13px;
+}
+
+.loading-row {
+  justify-content: center;
+  padding: 12px;
+}
+
+.composer-footer {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-top: 1px solid #cad5e2;
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(10px);
+}
+
+.composer-panel {
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 14px 0 18px;
+}
+
+.composer-copy {
+  gap: 10px;
+  margin-bottom: 9px;
+}
+
+.composer-copy > div {
+  display: grid;
+  gap: 1px;
+}
+
+.composer-copy strong {
+  font-size: 13px;
+}
+
+.composer-copy span:not(.composer-icon) {
+  color: #6a7c90;
+  font-size: 12px;
+}
+
+.composer-icon {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  color: #ffffff;
+  background: #14213d;
+}
+
+.composer-controls {
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.composer-controls .ant-input-textarea {
+  flex: 1;
+}
+
+.composer-controls .ant-space {
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.recording-status {
+  margin: 9px 0 0;
+  color: #b45309;
+  font-size: 12px;
+}
+
+@media (max-width: 760px) {
+  .app-header {
+    padding: 0 16px;
+  }
+
+  .brand div span,
+  .header-status .ant-btn {
+    display: none;
+  }
+
+  .app-content,
+  .composer-panel {
+    width: min(100% - 28px, 1120px);
+  }
+
+  .app-content {
+    padding-top: 25px;
+  }
+
+  .intro-band {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  h1 {
+    font-size: 29px;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .question-bubble,
+  .answer-stack {
+    max-width: 100%;
+  }
+
+  .composer-controls {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .composer-controls .ant-space {
+    justify-content: flex-start;
+  }
+}
+

@@ -1,0 +1,15 @@
+# Node.js dependencies and generated builds
+node_modules/
+build/
+server/node_modules/
+
+# Secrets and local runtime documents
+server/.env
+server/uploads/*
+!server/uploads/.gitkeep
+
+# Local operating-system and editor files
+.DS_Store
+.idea/
+.vscode/
+

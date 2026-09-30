@@ -1,0 +1,69 @@
+{
+  "info": {
+    "_postman_id": "7d97d271-1798-4a1b-b7bb-85e60f9e9a11",
+    "name": "Agent AI",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "http://localhost:5001/health"
+      },
+      "response": []
+    },
+    {
+      "name": "Upload PDF",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "file",
+              "type": "file",
+              "src": ""
+            }
+          ]
+        },
+        "url": "http://localhost:5001/upload"
+      },
+      "response": []
+    },
+    {
+      "name": "Ask Question",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"question\": \"What is the central topic of this document?\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "http://localhost:5001/chat"
+      },
+      "response": []
+    },
+    {
+      "name": "Clear Active Document",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": "http://localhost:5001/document"
+      },
+      "response": []
+    }
+  ]
+}

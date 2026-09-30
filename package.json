@@ -1,0 +1,49 @@
+{
+  "name": "agentai",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A course project for PDF RAG, voice interaction, and MCP tool use.",
+  "dependencies": {
+    "@ant-design/icons": "^5.6.1",
+    "antd": "^5.25.4",
+    "axios": "^1.8.4",
+    "concurrently": "^8.2.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-scripts": "5.0.1",
+    "react-speech-recognition": "3.10.0",
+    "speak-tts": "2.0.8",
+    "web-vitals": "^2.1.4"
+  },
+  "devDependencies": {
+    "ajv": "^8.20.0",
+    "ajv-keywords": "^5.1.0"
+  },
+  "scripts": {
+    "dev": "concurrently \"npm start\" \"npm run server\"",
+    "server": "npm --prefix server run start",
+    "server:watch": "npm --prefix server run dev",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "test:server": "npm --prefix server test"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
